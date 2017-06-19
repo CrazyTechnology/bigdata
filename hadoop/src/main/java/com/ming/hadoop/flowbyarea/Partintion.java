@@ -1,6 +1,5 @@
 package com.ming.hadoop.flowbyarea;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.mapreduce.Partitioner;
 
 import java.util.HashMap;
