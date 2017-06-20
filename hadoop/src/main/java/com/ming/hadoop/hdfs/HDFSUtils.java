@@ -4,6 +4,8 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataOutputStream;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.hdfs.DistributedFileSystem;
+import org.apache.hadoop.hdfs.protocol.DatanodeInfo;
 import org.junit.Before;
 import org.junit.Test;
 import java.io.FileInputStream;
@@ -58,6 +60,16 @@ public class HDFSUtils {
 //        FileOutputStream os=new FileOutputStream("/bigdata/src/jdk.tar.gz");
 //        IOUtils.copy(is,os);
 
+    }
+
+
+    @Test
+    public void getNodeInfo() throws IOException {
+        DistributedFileSystem hdfs= (DistributedFileSystem) fs;
+        DatanodeInfo[] dataNodeStats = hdfs.getDataNodeStats();
+        for(int i=0;i<dataNodeStats.length;i++){
+            System.out.println(dataNodeStats[i].getHostName());
+        }
     }
 
 
