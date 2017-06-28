@@ -9,7 +9,24 @@ object Test {
     print("hello "+name+" you are "+age+" years old")
   }
 
+  def playGame(name:String,age:Int){
+    print("welcom to our word "+name);
+    if(age>18)
+      print("you are "+age+"years old")
+    else
+      print("you are too young too simaple")
+
+  }
+
+
+  def sum(nums:Int *)={
+    var total=0;
+    for(num <-nums)
+      total+=num;
+    total
+  }
+
   def main(args: Array[String]): Unit = {
-    print(sayHello("xiaoli","20"))
+    playGame("xiaoli",10)
   }
 }
