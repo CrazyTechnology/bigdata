@@ -3,10 +3,13 @@ package com.ming.scala
 /**
   * Created by root on 6/28/17.
   */
-class Test {
-  def  sayHello(name:String,age:String)={
-    print("hello"+name+"welcome to our word even you are "+age+" years old!!");
-    name+age;
+object Test {
+
+  def sayHello(name:String,age:String)={
+    print("hello "+name+" you are "+age+" years old")
   }
 
+  def main(args: Array[String]): Unit = {
+    print(sayHello("xiaoli","20"))
+  }
 }
