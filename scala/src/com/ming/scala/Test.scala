@@ -1,7 +1,5 @@
 package com.ming.scala
 
-import scala.collection.mutable.ArrayBuffer
-
 /**
   * Created by root on 6/28/17.
   */
@@ -22,13 +20,13 @@ object Test {
 
 
   def sum(nums:Int *)={
-    //val arry=new ArrayBuffer()
+    var total=0;
     for(num <-nums)
       total+=num;
     total
   }
 
   def main(args: Array[String]): Unit = {
-    playGame("xiaoli",10)
+    playGame("xiaoli",20)
   }
 }
