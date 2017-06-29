@@ -1,5 +1,9 @@
 package com.ming.scala
+import scala.collection.mutable
+import scala.collection.mutable.ArrayBuffer
 import scala.util.control.Breaks._
+import scala.io.Source._
+import scala.collection.mutable.Map
 /**
   * Created by root on 6/29/17.
   */
@@ -82,16 +86,119 @@ object GameTest {
   }
 
 
+  def lazyTest(): Unit ={
+   lazy val  line=fromFile("")
+  }
+
+
+  def exceptionTest(): Unit ={
+    try {
+      val num=1/0;
+    }catch{
+      case e1: IllegalArgumentException => println("illegal argument")
+      case e2: Exception => println("0 can not be de")
+    }finally {
+      print("realese  resource!!!")
+    }
+  }
+
+
+  def arrayTest(): Unit ={
+    var arry=Array("1",2,"jim",56)
+    var arry_1=new Array[Int](3)
+    arry_1(0)=7
+    var arry_2=new Array[String](3)
+    var arry_3=new ArrayBuffer[Int]()
+    arry_3+=1;
+    arry_3+=(2,9,4,8,7)
+    for (n<- arry_3){
+      println(n)
+    }
+    println("-------------------------")
+    for(n<- 0 until arry_1.length){
+      println(arry_1(n))
+    }
+    println("-------------------------")
+    println("SUM ="+arry_3.sum)
+    println("MAX ="+arry_3.max)
+    println("Data ="+arry_3.mkString("<",",",">"))
+  }
+
+
+  def arrayTest2(): Unit ={
+    var a=Array(1,2,3,4,5,6,7);
+    var b=for(n<-a) yield  n*n
+    for(i<- b)
+      println(i)
+    println("-----------------------------")
+    var c=b.filter(_%2==0).map(2*_)
+    for(i<- c)
+      println(i)
+  }
+
+  def mapTest(): Unit ={
+    val map= Map("tom"->"beijing","jack"->"shanghai")
+   for((key,value)<-map)
+    println(key+" "+value);
+    var n=mutable.LinkedHashMap()
+  }
+
+
+
+  def littleTest(): Unit ={
+    val a=new ArrayBuffer[Int]()
+    a+=(1,2,3,4,5,-1,-3,8,-5,-8)
+    var foundFirstNaviget=false;
+    var length=a.length;
+    var index=0;
+    while(index<length){
+      if(a(index)<0){
+        foundFirstNaviget=true
+        a.remove(index)
+        length-=1
+      }
+      else{
+        foundFirstNaviget=false
+        index+=1
+      }
+
+    }
+
+    for(i <-a){
+      println(i)
+    }
+
+  }
+
+
+
+  def tupleTest: Unit ={
+    val t=("tom","jack","java")
+    val s=("tom_1","jack_1","java_1")
+    val st= s.zip(t)
+    println(st)
+
+  }
+
+
+
+
   def main(args: Array[String]): Unit = {
     //Game()
     //num(5)
     //whileTest
-   // MultiPlay
-//    var total=feb(10);
-//    print(total);
-//    test("xiao hei")
-   // defaultValue(name="xiaoli" ,sex="woman",age=15)
-   println(sum2(1 to 5:_*))
+     // MultiPlay
+    //    var total=feb(10);
+    //    print(total);
+    //    test("xiao hei")
+     // defaultValue(name="xiaoli" ,sex="woman",age=15)
+     // println(sum2(1 to 5:_*))
+    //exceptionTest
+   // arrayTest
+    //arrayTest2
+    //mapTest
+    //littleTest
+    tupleTest
   }
 
 }
