@@ -175,8 +175,8 @@ object GameTest {
   def tupleTest: Unit ={
     val t=("tom","jack","java")
     val s=("tom_1","jack_1","java_1")
-    val st= s.zip(t)
-    println(st)
+    //val st= s.zip(t)
+   // println(st)
 
   }
 
@@ -198,7 +198,10 @@ object GameTest {
     //arrayTest2
     //mapTest
     //littleTest
-    tupleTest
+    //tupleTest
+   var hell=new  TestClass("jim")
+
+
   }
 
 }
