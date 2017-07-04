@@ -22,7 +22,7 @@ public class WordCount {
         //第一步设置spark配置信息,local代表本地运行
         SparkConf conf=new SparkConf();
         conf.setAppName("wordCountApp");
-        conf.setMaster("local");
+       // conf.setMaster("local");
         //第二步创建sparkcontext对象，java使用javasparkcontext对象
         JavaSparkContext  sparkContext=new JavaSparkContext(conf);
         //第三步，根据输入源（hdfs.hive）创建RDD
@@ -30,7 +30,8 @@ public class WordCount {
         // 在Java中，创建的普通RDD，都叫做JavaRDD
         // 在这里呢，RDD中，有元素这种概念，如果是hdfs或者本地文件呢，创建的RDD，每一个元素就相当于
         // 是文件里的一行
-        JavaRDD<String> lines = sparkContext.textFile("/hadoop/src/spark.txt");
+       // JavaRDD<String> lines = sparkContext.textFile("/hadoop/src/spark.txt");
+        JavaRDD<String> lines = sparkContext.textFile("hdfs://hadoop-nn-1:9000/spark.txt");
         //第四步，对初始RDD，进行transformation操作，也就是一些计算操作
         //通常使用创建function,并配合RDD的map,floatmap等算子来执行
         //function如果比较简单，通常使用创建匿名内部类，如果较复杂单独创建一个实现function接口的类
