@@ -1,4 +1,4 @@
-package com.ming.scala
+package com.ming.scala.test
 
 import scala.collection.mutable
 import scala.collection.mutable.{ArrayBuffer, Map}
