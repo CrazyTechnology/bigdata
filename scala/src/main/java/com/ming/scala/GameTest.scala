@@ -1,9 +1,9 @@
 package com.ming.scala
+
 import scala.collection.mutable
-import scala.collection.mutable.ArrayBuffer
-import scala.util.control.Breaks._
+import scala.collection.mutable.{ArrayBuffer, Map}
 import scala.io.Source._
-import scala.collection.mutable.Map
+import scala.util.control.Breaks._
 /**
   * Created by root on 6/29/17.
   */
