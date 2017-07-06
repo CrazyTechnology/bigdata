@@ -1,4 +1,4 @@
-package com.ming.scala
+package com.ming.scala.test
 
 import org.apache.spark.{SparkConf, SparkContext}
 
