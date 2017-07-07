@@ -12,6 +12,7 @@
         <module>hadoop</module>
         <module>spark</module>
         <module>scala</module>
+        <module>spark-data-analyse</module>
     </modules>
     <dependencyManagement>
         <dependencies>
