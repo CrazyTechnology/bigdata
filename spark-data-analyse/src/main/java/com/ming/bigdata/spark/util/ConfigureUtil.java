@@ -33,6 +33,8 @@ public class ConfigureUtil {
         return prop.getProperty(key);
     }
 
+
+
     public static Integer getInteger(String jdbcDatasourceSize) {
         String value = getProperty(jdbcDatasourceSize);
         try{
@@ -43,5 +45,19 @@ public class ConfigureUtil {
         return 0;
 
     }
+
+
+    public static Boolean getBoolean(String key){
+        String property = getProperty(key);
+        try{
+          return   Boolean.valueOf(property);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return  true;
+
+    }
+
+
 
 }
