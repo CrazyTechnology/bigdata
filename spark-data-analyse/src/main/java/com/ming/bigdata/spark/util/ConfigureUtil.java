@@ -1,5 +1,7 @@
 package com.ming.bigdata.spark.util;
 
+import org.junit.Test;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -14,7 +16,7 @@ public class ConfigureUtil {
      * 加载配置文件
      */
     static {
-        InputStream rs = ConfigureUtil.class.getClassLoader().getResourceAsStream("");
+        InputStream rs = ConfigureUtil.class.getClassLoader().getResourceAsStream("properties/db.properties");
         try {
             prop.load(rs);
         } catch (IOException e) {
@@ -29,6 +31,17 @@ public class ConfigureUtil {
      */
     public static String getProperty(String key) {
         return prop.getProperty(key);
+    }
+
+    public static Integer getInteger(String jdbcDatasourceSize) {
+        String value = getProperty(jdbcDatasourceSize);
+        try{
+            return Integer.valueOf(value);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return 0;
+
     }
 
 }
