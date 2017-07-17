@@ -1,4 +1,4 @@
-package com.ming.java;
+package com.ming.java.rdd;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
