@@ -6,6 +6,7 @@ import com.ming.bigdata.spark.dao.ITaskDAO;
 import com.ming.bigdata.spark.dao.factory.DAOFactory;
 import com.ming.bigdata.spark.domain.Task;
 import com.ming.bigdata.spark.util.*;
+import org.apache.log4j.Logger;
 import org.apache.spark.SparkConf;
 import org.apache.spark.SparkContext;
 import org.apache.spark.api.java.JavaPairRDD;
@@ -49,6 +50,7 @@ import java.util.Iterator;
  */
 public class UserVistAnalyseSpark {
 
+    public static Logger logger=Logger.getLogger(UserVistAnalyseSpark.class);
 
     public static void main(String args[]){
         args = new String[]{"2"};
@@ -63,7 +65,6 @@ public class UserVistAnalyseSpark {
         SQLContext sqlContext=getSQLContext(jsc.sc());
         //生成模拟数据
         mockData(jsc,sqlContext);
-
         // 创建需要使用的DAO组件
         ITaskDAO taskDAO = DAOFactory.getTaskDAO();
         // 首先得查询出来指定的任务，并获取任务的查询参数
@@ -74,22 +75,17 @@ public class UserVistAnalyseSpark {
         // 如果要进行session粒度的数据聚合
         // 首先要从user_visit_action表中，查询出来指定日期范围内的行为数据
         JavaRDD<Row> DateRDD=getRDDInfoByDate(sqlContext,taskParam);
-        System.out.println("==========="+ DateRDD.count());
         // 首先，可以将行为数据，按照session_id进行groupByKey分组
         // 此时的数据的粒度就是session粒度了，然后呢，可以将session粒度的数据
         // 与用户信息数据，进行join
         // 然后就可以获取到session粒度的数据，同时呢，数据里面还包含了session对应的user的信息
         JavaPairRDD<String, String> sessionid2AggrInfoRDD =
                 aggregateBySession(sqlContext, DateRDD);
-
-        System.out.print("+==========="+sessionid2AggrInfoRDD.count());
-
         // 接着，就要针对session粒度的聚合数据，按照使用者指定的筛选参数进行数据过滤
         // 相当于我们自己编写的算子，是要访问外面的任务参数对象的
         // 所以，大家记得我们之前说的，匿名内部类（算子函数），访问外部对象，是要给外部对象使用final修饰的
         JavaPairRDD<String, String> filteredSessionid2AggrInfoRDD =
                 filterSession(sessionid2AggrInfoRDD, taskParam);
-        System.out.print("+==========="+filteredSessionid2AggrInfoRDD.count());
         //关闭数据
         jsc.close();
 
@@ -282,6 +278,7 @@ public class UserVistAnalyseSpark {
 
         // 查询所有用户数据，并映射成<userid,Row>的格式
         String sql = "select * from user_info";
+        sqlContext.sql(sql).show();
         JavaRDD<Row> userInfoRDD = sqlContext.sql(sql).javaRDD();
         JavaPairRDD<Long, Row> userid2InfoRDD = userInfoRDD.mapToPair(
 
