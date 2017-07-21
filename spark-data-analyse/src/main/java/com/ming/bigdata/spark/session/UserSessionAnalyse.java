@@ -50,6 +50,7 @@ public class UserSessionAnalyse {
             public Tuple2<String, String> call(Tuple2<String, Iterable<Row>> tuple) throws Exception {
                 final long serialVersionUID = 1L;
                 Iterator<Row> iteratorSessionId = tuple._2.iterator();
+                StringBuffer sb=new StringBuffer();
                 while (iteratorSessionId.hasNext()) {
                     //遍历具有相同sessionid的访问信息
                     Row session = iteratorSessionId.next();
