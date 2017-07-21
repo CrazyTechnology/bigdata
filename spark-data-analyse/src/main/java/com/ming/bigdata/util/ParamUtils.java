@@ -2,8 +2,8 @@ package com.ming.bigdata.util;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.ibeifeng.sparkproject.conf.ConfigurationManager;
-import com.ibeifeng.sparkproject.constant.Constants;
+import com.ming.bigdata.conf.ConfigurationManager;
+import com.ming.bigdata.constant.Constants;
 
 /**
  * 参数工具类
