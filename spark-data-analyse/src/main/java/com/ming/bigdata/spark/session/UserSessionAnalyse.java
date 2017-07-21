@@ -2,6 +2,7 @@ package com.ming.bigdata.spark.session;
 import com.ming.bigdata.conf.ConfigurationManager;
 import com.ming.bigdata.constant.Constants;
 import com.ming.bigdata.util.MockData;
+import com.ming.bigdata.util.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
@@ -54,7 +55,16 @@ public class UserSessionAnalyse {
                 while (iteratorSessionId.hasNext()) {
                     //遍历具有相同sessionid的访问信息
                     Row session = iteratorSessionId.next();
+                    //获取userId
+                   String userId= session.get(1).toString();
+
+
+
+
                     String date=session.get(0).toString();
+                    if (StringUtils.isNotEmpty(date)){
+                        sb.append("date="+date+"|");
+                    }
                     String user_id=session.get(1).toString();
                 }
                 return new Tuple2<String, String>("1","1");
