@@ -326,13 +326,10 @@ public class UserSessionAnalyse {
                 }
             }
         });
-        filteredSessionid2AggrInfoRDD.foreach(new VoidFunction<Tuple2<String, String>>() {
-            public void call(Tuple2<String, String> tuple) throws Exception {
-                System.out.println("tuple1============================="+tuple._1);
-                System.out.println("tuple2============================="+tuple._2);
-            }
-        });
 
+
+        //需要进行action操作，否则不会执行accumulator操作
+        filteredSessionid2AggrInfoRDD.count();
          return filteredSessionid2AggrInfoRDD;
 
     }
