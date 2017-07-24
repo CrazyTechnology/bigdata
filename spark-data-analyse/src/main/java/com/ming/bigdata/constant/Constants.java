@@ -40,6 +40,7 @@ public interface Constants {
 	String FIELD_VISIT_LENGTH = "visitLength";
 	String FIELD_STEP_LENGTH = "stepLength";
 	String FIELD_START_TIME = "startTime";
+	String FIELD_END_TIME ="endTime";
 	String FIELD_CLICK_COUNT = "clickCount";
 	String FIELD_ORDER_COUNT = "orderCount";
 	String FIELD_PAY_COUNT = "payCount";
@@ -77,5 +78,6 @@ public interface Constants {
 	String PARAM_KEYWORDS = "keywords";
 	String PARAM_CATEGORY_IDS = "categoryIds";
 	String PARAM_TARGET_PAGE_FLOW = "targetPageFlow";
-	
+
+
 }

@@ -12,7 +12,16 @@ public class SessionRandomExtract {
 	private String startTime;
 	private String searchKeywords;
 	private String clickCategoryIds;
-	
+	private String endTime;
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+
 	public long getTaskid() {
 		return taskid;
 	}

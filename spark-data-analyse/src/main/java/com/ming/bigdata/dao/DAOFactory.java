@@ -1,6 +1,8 @@
 package com.ming.bigdata.dao;
 
 import com.ming.bigdata.dao.impl.ISessionAggrStatDAOImpl;
+import com.ming.bigdata.dao.impl.ISessionDetailDAOImpl;
+import com.ming.bigdata.dao.impl.ISessionRandomExtractDAOImpl;
 import com.ming.bigdata.dao.impl.ITaskDaoImpl;
 
 /**
@@ -14,5 +16,13 @@ public class DAOFactory {
 
     public static ISessionAggrStatDAO getSessionAggrStatDAO() {
         return new ISessionAggrStatDAOImpl();
+    }
+
+    public static ISessionRandomExtractDAO getSessionRandomExtractDAO() {
+        return new ISessionRandomExtractDAOImpl();
+    }
+
+    public static ISessionDetailDAO getSessionDetailDAO() {
+        return  new ISessionDetailDAOImpl();
     }
 }
