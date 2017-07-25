@@ -1,9 +1,6 @@
 package com.ming.bigdata.dao;
 
-import com.ming.bigdata.dao.impl.ISessionAggrStatDAOImpl;
-import com.ming.bigdata.dao.impl.ISessionDetailDAOImpl;
-import com.ming.bigdata.dao.impl.ISessionRandomExtractDAOImpl;
-import com.ming.bigdata.dao.impl.ITaskDaoImpl;
+import com.ming.bigdata.dao.impl.*;
 
 /**
  * Created by ming on 2017/7/22.
@@ -24,5 +21,13 @@ public class DAOFactory {
 
     public static ISessionDetailDAO getSessionDetailDAO() {
         return  new ISessionDetailDAOImpl();
+    }
+
+    public static ITop10CategoryDAO getTop10CategoryDAO() {
+        return new ITop10CategoryDAOImpl();
+    }
+
+    public static ITop10SessionDAO getTop10SessionDAO() {
+        return  new ITop10SessionDAOImpl();
     }
 }
