@@ -28,7 +28,7 @@ public class UserSessionAnalyse {
     //记录日志
     private static Logger logger=Logger.getLogger(UserSessionAnalyse.class);
     public static void main(String [] args){
-        SparkConf conf=new SparkConf().setAppName(Constants.SPARK_APP_NAME_SESSION).setMaster("local");
+        SparkConf conf=new SparkConf().setAppName(Constants.SPARK_APP_NAME_SESSION);
         JavaSparkContext sc=new JavaSparkContext(conf);
         SQLContext sql=getSqlContext(Constants.SPARK_LOCAL,sc);
         //生成模拟数据进行操作
