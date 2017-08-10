@@ -30,6 +30,7 @@ class StringCount extends UserDefinedAggregateFunction{
   }
 
   //为每个数组的数据执行初始化操作
+  //MutableAggregationBuffer 可变的聚合缓冲区
    def initialize(buffer: MutableAggregationBuffer): Unit = {
     buffer(0)=0;
   }
