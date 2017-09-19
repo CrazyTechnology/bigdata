@@ -13,6 +13,7 @@
         <module>spark</module>
         <module>scala</module>
         <module>spark-data-analyse</module>
+        <module>integrated-project</module>
     </modules>
     <dependencyManagement>
         <dependencies>
