@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+<property> 
+　　　　<name>hbase.rootdir</name> 
+　　　　<value>hdfs://ns1/hbase</value> 
+　　</property> 
+　　<property> 
+　　　　<name>hbase.cluster.distributed</name> 
+　　　　<value>true</value> 
+　　</property> 
+　　<property> 
+　　　　<name>hbase.zookeeper.quorum</name> 
+　　　　<value>192.168.16.110,192.168.16.111,192.168.16.112</value> 
+　　</property> 
+　　<property> 
+　　　　<name>hbase.zookeeper.property.dataDir</name> 
+　　　　<value>/bigdata/data/hbase-2.6.5/tmp/zk/data</value> 
+　　</property>
+</configuration>

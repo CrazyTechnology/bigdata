@@ -4,24 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 import com.ming.integrated.hbase.dao.HBaseDAO;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.hbase.KeyValue;
-import org.apache.hadoop.hbase.client.Get;
-import org.apache.hadoop.hbase.client.HConnection;
-import org.apache.hadoop.hbase.client.HConnectionManager;
-import org.apache.hadoop.hbase.client.HTableInterface;
-import org.apache.hadoop.hbase.client.Put;
-import org.apache.hadoop.hbase.client.Result;
-import org.apache.hadoop.hbase.client.ResultScanner;
-import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.*;
+import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.filter.PrefixFilter;
 
 public class HBaseDAOImp implements HBaseDAO {
 
 	HConnection hTablePool = null;
+	public static Configuration configuration;
+	static {
+		configuration = HBaseConfiguration.create();
+		configuration.set("hbase.zookeeper.property.clientPort", "2181");
+		configuration.set("hbase.zookeeper.quorum", "192.168.16.110,192.168.16.111,192.168.16.112");
+		configuration.set("hbase.master", "192.168.16.110:600000");
+	}
 	public HBaseDAOImp()
 	{
 		Configuration conf = new Configuration();
-		String zk_list = "192.168.1.107,192.168.1.108" ;
+		String zk_list ="192.168.16.110:2181,192.168.16.111:2181,192.168.16.112:2181";
 		conf.set("hbase.zookeeper.quorum", zk_list);
 		try {
 			hTablePool = HConnectionManager.createConnection(conf) ;
@@ -29,6 +29,31 @@ public class HBaseDAOImp implements HBaseDAO {
 			e.printStackTrace();
 		}
 	}
+
+	public static void createTable(String tableName) {
+		System.out.println("start create table ......");
+		try {
+			HBaseAdmin hBaseAdmin = new HBaseAdmin(configuration);
+			if (hBaseAdmin.tableExists(tableName)) {// 如果存在要创建的表，那么先删除，再创建
+				hBaseAdmin.disableTable(tableName);
+				hBaseAdmin.deleteTable(tableName);
+				System.out.println(tableName + " is exist,detele....");
+			}
+			HTableDescriptor tableDescriptor = new HTableDescriptor(tableName);
+			tableDescriptor.addFamily(new HColumnDescriptor("column1"));
+			tableDescriptor.addFamily(new HColumnDescriptor("column2"));
+			tableDescriptor.addFamily(new HColumnDescriptor("column3"));
+			hBaseAdmin.createTable(tableDescriptor);
+		} catch (MasterNotRunningException e) {
+			e.printStackTrace();
+		} catch (ZooKeeperConnectionException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("end create table ......");
+	}
+
 	public void save(Put put, String tableName) {
 		// TODO Auto-generated method stub
 		HTableInterface table = null;
@@ -197,39 +222,7 @@ public class HBaseDAOImp implements HBaseDAO {
 		return list;
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		HBaseDAO dao = new HBaseDAOImp();
-//		List<Put> list = new ArrayList<Put>();
-//		Put put = new Put("cloudy".getBytes());
-//		put.add("cf".getBytes(), "name".getBytes(), "zhaoliu1".getBytes()) ;
-//		list.add(put) ;
-////		dao.save(put, "test") ;
-//		put.add("cf".getBytes(), "addr".getBytes(), "shanghai1".getBytes()) ;
-//		list.add(put) ;
-//		put.add("cf".getBytes(), "age".getBytes(), "30".getBytes()) ;
-//		list.add(put) ;
-//		put.add("cf".getBytes(), "tel".getBytes(), "13567882341".getBytes()) ;
-//		list.add(put) ;
-//		
-//		dao.save(list, "test");
-//		dao.save(put, "test") ;
-//		dao.insert("test", "testrow", "cf", "age", "35") ;
-//		dao.insert("test", "testrow", "cf", "cardid", "12312312335") ;
-//		dao.insert("test", "testrow", "cf", "tel", "13512312345") ;
-		List<Result> list = dao.getRows("test", "rk",new String[]{"name","age"}) ;
-		for(Result rs : list)
-		{
-			for(KeyValue keyValue : rs.raw())
-			{
-				System.out.println("rowkey:"+ new String(keyValue.getRow()));
-				System.out.println("Qualifier:"+ new String(keyValue.getQualifier()));
-				System.out.println("Value:"+ new String(keyValue.getValue()));
-				System.out.println("----------------");
-			}
-		}
-//		Result rs = dao.getOneRow("test", "testrow");
-		
-		
+		createTable("wujintao");
 	}
 
 }
