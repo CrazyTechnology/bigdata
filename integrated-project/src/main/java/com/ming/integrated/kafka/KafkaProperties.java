@@ -18,7 +18,7 @@ package com.ming.integrated.kafka;
 
 public interface KafkaProperties
 {
-  final static String zkConnect = "192.168.16.110:2181,192.168.16.111:2181,192.168.16.112:2181";
+  final static String zkConnect = "hadoop-5:2181,hadoop-6:2181,hadoop-7:2181";
   final static  String groupId = "group1";
   final static String topic = "bigdata";
   

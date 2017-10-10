@@ -27,6 +27,7 @@
         <module name="scala" />
         <module name="spark" />
         <module name="spark-data-analyse" />
+        <module name="spark-kafka-hive-hbase" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -36,6 +37,7 @@
       <module name="scala" target="1.5" />
       <module name="spark" target="1.5" />
       <module name="spark-data-analyse" target="1.5" />
+      <module name="spark-kafka-hive-hbase" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/scala/scala.iml" filepath="$PROJECT_DIR$/scala/scala.iml" />
       <module fileurl="file://$PROJECT_DIR$/spark/spark.iml" filepath="$PROJECT_DIR$/spark/spark.iml" />
       <module fileurl="file://$PROJECT_DIR$/spark-data-analyse/spark-data-analyse.iml" filepath="$PROJECT_DIR$/spark-data-analyse/spark-data-analyse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spark-kafka-hive-hbase/spark-kafka-hive-hbase.iml" filepath="$PROJECT_DIR$/spark-kafka-hive-hbase/spark-kafka-hive-hbase.iml" />
     </modules>
   </component>
 </project>

@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import com.ming.integrated.hbase.dao.HBaseDAO;
+import com.ming.integrated.util.PropertiesUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.*;
 import org.apache.hadoop.hbase.client.*;
@@ -21,7 +22,7 @@ public class HBaseDAOImp implements HBaseDAO {
 	public HBaseDAOImp()
 	{
 		Configuration conf = new Configuration();
-		String zk_list ="192.168.16.110:2181,192.168.16.111:2181,192.168.16.112:2181";
+		String zk_list = PropertiesUtils.ZOOKEEPER_URL;
 		conf.set("hbase.zookeeper.quorum", zk_list);
 		try {
 			hTablePool = HConnectionManager.createConnection(conf) ;
