@@ -1,6 +1,6 @@
-package com.ming.hbase.impl;
+package com.ming.hbase.dao.impl;
 
-import com.ming.hbase.HbaseDao;
+import com.ming.hbase.dao.HbaseDao;
 import com.ming.util.ConfigurationManagement;
 import com.ming.util.Constants;
 import org.apache.hadoop.conf.Configuration;
@@ -210,10 +210,4 @@ public class HbaseDaoImpl implements HbaseDao {
         return rsResult;
     }
 
-
-    public static void main(String args[]) throws IOException {
-        HbaseDao hbaseDao=new HbaseDaoImpl();
-        String[] columnFamilys=new String[]{"info"};
-        hbaseDao.createTable("bigdata",columnFamilys);
-    }
 }

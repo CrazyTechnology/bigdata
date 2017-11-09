@@ -1,4 +1,4 @@
-package com.ming.hbase;
+package com.ming.hbase.dao;
 
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Result;
