@@ -51,7 +51,10 @@ object MockData {
     val stype=DataTypes.createStructType(structField.toArray)
    val df= hiveContext.createDataFrame(testdata,stype)
     df.registerTempTable("mock_data")
-    hiveContext.sql("insert into table  bi_data.app_event partition (app='A09',year=2017,month=11,day=11) select * from mock_data")
+    //hiveContext.sql("select uid,event_id,event_data,timestamp,platform,device_id,app_version,rom_version,hardware_version,channel from mock_data").show(100)
+
+
+    hiveContext.sql("insert into table  bi_data.app_event partition (app='A09',year=2017,month=11,day=11) select uid,event_id,event_data,timestamp,platform,device_id,app_version,rom_version,hardware_version,channel from mock_data")
   }
 
 
