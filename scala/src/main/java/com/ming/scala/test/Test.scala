@@ -9,7 +9,7 @@ object Test {
     print("hello "+name+" you are "+age+" years old")
   }
 
-  def playGame(name:String,age:Int){
+  def playGame(name:String,age:Int=0){
     print("welcom to our word "+name);
     if(age>18)
       print("you are "+age+"years old")
@@ -27,6 +27,6 @@ object Test {
   }
 
   def main(args: Array[String]): Unit = {
-    playGame("xiaoli",20)
+    playGame("xiaoli")
   }
 }
