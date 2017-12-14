@@ -41,7 +41,7 @@ object MockData {
     structField.append(DataTypes.createStructField("uid",DataTypes.StringType,false))
     structField.append(DataTypes.createStructField("event_id",DataTypes.StringType,false))
     structField.append(DataTypes.createStructField("event_data",DataTypes.StringType,false))
-    structField.append(DataTypes.createStructField("timestamp",DataTypes.StringType,false))
+    structField.append(DataTypes.createStructField("ts",DataTypes.StringType,false))
     structField.append(DataTypes.createStructField("platform",DataTypes.StringType,false))
     structField.append(DataTypes.createStructField("device_id",DataTypes.StringType,false))
     structField.append(DataTypes.createStructField("app_version",DataTypes.StringType,false))
@@ -54,7 +54,7 @@ object MockData {
     //hiveContext.sql("select uid,event_id,event_data,timestamp,platform,device_id,app_version,rom_version,hardware_version,channel from mock_data").show(100)
 
 
-    hiveContext.sql("insert into table  bi_data.app_event partition (app='A09',year=2017,month=11,day=11) select uid,event_id,event_data,timestamp,platform,device_id,app_version,rom_version,hardware_version,channel from mock_data")
+    hiveContext.sql("insert into table  bi_data.app_event partition (app='A09',year=2017,month=11,day=11) select uid,event_id,event_data,ts,platform,device_id,app_version,rom_version,hardware_version,channel from mock_data")
   }
 
 
