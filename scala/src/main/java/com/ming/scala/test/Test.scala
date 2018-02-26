@@ -27,6 +27,9 @@ object Test {
   }
 
   def main(args: Array[String]): Unit = {
-    playGame("xiaoli")
+    var array=Array(1,2,3,4,5)
+    var b=array.find(num=>num%2==0)
+    var a=array.filter(num=>num%2==0)
+    System.out.print(a.length)
   }
 }

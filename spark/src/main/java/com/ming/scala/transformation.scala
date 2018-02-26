@@ -6,7 +6,8 @@ import org.apache.spark.streaming.{Seconds, StreamingContext}
 /**
   * Created by ming on 2017/8/16.
   */
-object transformation {
+object
+transformation {
   def main(args: Array[String]): Unit = {
     val sparkConf=new SparkConf().setMaster("local[2]").setAppName("transformation")
     val sparkStreaming=new StreamingContext(sparkConf,Seconds(5))
