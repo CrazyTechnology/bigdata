@@ -26,10 +26,39 @@ object Test {
     total
   }
 
+  def circle(nums:Int): Unit ={
+    var n=nums
+    while (n>0){
+      System.out.println(n)
+      n=n-1
+    }
+
+    for (i <- 0 to nums){
+      System.out.println(i)
+    }
+  }
+
+
+
   def main(args: Array[String]): Unit = {
-    var array=Array(1,2,3,4,5)
-    var b=array.find(num=>num%2==0)
-    var a=array.filter(num=>num%2==0)
-    System.out.print(a.length)
+    //    var array=Array(1,2,3,4,5)
+    //    var b=array.find(num=>num%2==0)
+    //    var a=array.filter(num=>num%2==0)
+    //    System.out.print(a.length)
+//    var map = Map("name" -> "lucy", "age" -> "18", "sex" -> "female")
+//      map +="address"->"北京"
+//    for ((key,value)<-map){
+//      println("key:"+key+"value:"+value)
+//    }
+
+    val tuple=(10,"lucy")
+
+
+
+
+
+
+
+
   }
 }
