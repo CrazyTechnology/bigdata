@@ -1,4 +1,4 @@
-package com.ming.util;
+package com.ming.common.utils;
 import java.io.InputStream;
 import java.util.Properties;
 

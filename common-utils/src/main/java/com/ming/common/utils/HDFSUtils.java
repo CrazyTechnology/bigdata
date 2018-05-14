@@ -1,4 +1,4 @@
-package com.ming.hadoop.hdfs;
+package com.ming.common.utils;
 import org.apache.commons.io.IOUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataOutputStream;
@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import java.io.FileInputStream;
 import java.io.IOException;
+
 /**
  * Created by root on 6/19/17.
  */
