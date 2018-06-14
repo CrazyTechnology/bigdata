@@ -12,6 +12,10 @@
     <artifactId>common-utils</artifactId>
      <dependencies>
          <dependency>
+             <groupId>org.scala-lang</groupId>
+             <artifactId>scala-library</artifactId>
+         </dependency>
+         <dependency>
              <groupId>log4j</groupId>
              <artifactId>log4j</artifactId>
          </dependency>
