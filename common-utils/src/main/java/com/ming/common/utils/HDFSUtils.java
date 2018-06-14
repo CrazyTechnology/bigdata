@@ -51,9 +51,9 @@ public class HDFSUtils {
      * 从HDFS下载文件
      */
     @Test
-    public void download() throws IOException {
-        Path dst=new Path("/bigdata/src/jdk.tar.gz");
-        Path src=new Path("hdfs://hadoop-master:9000/jdk-8u131-linux-i586.tar.gz");
+    public void download(String source,String destination) throws IOException {
+        Path dst=new Path(destination);
+        Path src=new Path(source);
         fs.copyToLocalFile(src,dst);
 
         //方法二
