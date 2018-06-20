@@ -1,9 +1,8 @@
 package com.ming.common.utils
 
 import com.typesafe.scalalogging.Logger
-import kafka.serializer.StringDecoder
-import kafka.utils.{ZKGroupDirs, ZKGroupTopicDirs}
 import org.I0Itec.zkclient.ZkClient
+import org.apache.commons.codec.StringDecoder
 import org.apache.spark.streaming.dstream.InputDStream
 import org.apache.spark.streaming.kafka.KafkaUtils
 import org.apache.spark.streaming.{Seconds, StreamingContext}
