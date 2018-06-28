@@ -1,6 +1,7 @@
 package com.ming.common.utils
 
 import com.typesafe.scalalogging.Logger
+import kafka.utils.ZKGroupTopicDirs
 import org.I0Itec.zkclient.ZkClient
 import org.apache.commons.codec.StringDecoder
 import org.apache.spark.streaming.dstream.InputDStream
@@ -28,16 +29,6 @@ object KafkaUtil {
           adRealtimeLogDStream=KafkaUtils.createDirectStream[String, String, StringDecoder, StringDecoder](ssc, kafkaParams, Set(topic))
 
         }
-
-
-
-
-
-
-
-
-
-
         adRealtimeLogDStream
 
 
