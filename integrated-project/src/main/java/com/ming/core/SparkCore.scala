@@ -6,8 +6,8 @@ object SparkCore {
   def main(args: Array[String]): Unit = {
     val conf= new SparkConf().setAppName("Test").setMaster("local")
     val sc=new SparkContext(conf)
-    val list=Array("hello","word","my","name","is")
+    val list=Array("hello","word","my","name","is","my")
     val rdd=sc.parallelize(list).map(x=>(x,1))
-    rdd.reduceByKey(_+_).collect()
+    rdd.reduceByKey(_+_).collect().foreach(print(_))
   }
 }

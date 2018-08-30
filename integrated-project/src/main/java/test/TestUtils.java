@@ -1,7 +1,6 @@
 package test;
 
-import com.ming.common.utils.PropertiesUtils;
-import com.ming.common.utils.StringUtils;
+
 import org.junit.Test;
 
 /**
