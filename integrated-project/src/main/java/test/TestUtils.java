@@ -10,6 +10,6 @@ public class TestUtils {
 
     @Test
     public void testProperties(){
-
+        System.out.println(-2>>1);
     }
 }
